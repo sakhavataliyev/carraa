@@ -23,29 +23,6 @@ class SettingController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Setting $setting)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -65,8 +42,12 @@ class SettingController extends Controller
 
         $validated = $request->validated();
 
-        $old_logo = $request->old_logo;
-        $old_favicon = $request->old_favicon;
+        // $old = Setting::find($setting);
+        $old_logo = $setting->logo;
+        $old_favicon = $setting->favicon;        
+
+        // $old_logo = $request->old_logo;
+        // $old_favicon = $request->old_favicon;
         $logo = $request->file('logo');
         $favicon = $request->file('favicon');
 
@@ -100,11 +81,7 @@ class SettingController extends Controller
                 ]);
 
         }
-        // $update = DB::table('settings')->update([
-        //     'logo' => $logo_last,
-        //     'favicon' => $favicon_last,
-        //     'updated_at' => Carbon::now(),
-        // ]);
+
 
         $setting->update([
             'title' => $request->title,
@@ -117,70 +94,8 @@ class SettingController extends Controller
 
         return Redirect()->route('settings.index')->with('success', 'Settings Updated Successfully!');
 
-        // if($logo || $favicon)
-        // {
-
-        // // @unlink(public_path('storage/setting/'.$old_logo));
-        // // // $image_name = date('dmy_H_s_i');
-        // // $image_name = "logo";
-        // // $ext = strtolower($logo->getClientOriginalExtension());
-        // // $image_full_name = $image_name.'.'.$ext;
-        // // $upload_path = 'storage/setting/';
-        // // $image_url = $upload_path.$image_full_name;
-        // // $logo_last = $logo->move($upload_path,$image_full_name);
-        // // // $data['logo'] = $image_url;
-
-        // // @unlink(public_path('storage/setting/'.$old_favicon));
-        // // $favicon_name = "favicon";
-        // // $favicon_ext = strtolower($favicon->getClientOriginalExtension());
-        // // $favicon_full_name = $favicon_name.'.'.$favicon_ext;
-        // // $favicon_upload_path = 'storage/setting/';
-        // // $favicon_url = $favicon_upload_path.$favicon_full_name;
-        // // $favicon_last = $favicon->move($favicon_upload_path,$favicon_full_name);
-        // // // $data['favicon'] = $favicon_url; 
-
-
-        // // $update = DB::table('settings')->update([
-        // //     'logo' => $logo_last,
-        // //     'favicon' => $favicon_last,
-        // //     'updated_at' => Carbon::now(),
-        // // ]);
-
-
-        // // return Redirect()->route('settings.index')->with('success', 'Brand Updated Successfully!');
-        // }
-
-        
-       
-        // else
-        // {
-
-        //     $update = DB::table('settings')->update([
-        //         // 'logo' => $logo_last,
-        //         // 'favicon' => $favicon_last,
-        //         'title' => $request->title,
-        //         'description' => $request->description,
-        //         'keywords' => $request->keywords,
-        //         'copyright' => $request->copyright,
-        //         'analytics' => $request->analytics,
-        //         'updated_at' => Carbon::now(),
-        //     ]);
-
-        //     return Redirect()->route('settings.index')->with('success', 'Brand Name Updated Successfully!');
-        // }
-
-
-    
-        // return Redirect()->route('settings.index')->with('success', 'Brand Name Updated Successfully!');
     }
 
 
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Setting $setting)
-    {
-        //
-    }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SliderController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
@@ -41,7 +42,7 @@ Route::view('/', 'welcome');
 // })->middleware(['auth', 'verified'])->name('home');
 
 Route::middleware('auth','is_admin')->group(function () {
-
+        
     Route::view('/home', 'backend.layouts.index')->name('home');
 
     Route::controller(ProfileController::class)->group(function(){
@@ -56,16 +57,16 @@ Route::middleware('auth','is_admin')->group(function () {
     Route::resource('settings', SettingController::class);
     Route::resource('socials', SocialController::class);
     Route::resource('staticpages', StaticPageController::class);
+    Route::resource('sliders', SliderController::class);
+    Route::resource('contacts', ContactController::class);
+
+
     // Route::resource('staticpages/{slug}', 'StaticPageController')->only([
     //     'show',
     // ]);
     // Route::resource('staticpages/{slug}', 'StaticPageController')->except([
     //     'show',
     // ]);
-
-    Route::resource('contacts', ContactController::class);
-
-    
     // Route::controller(SettingController::class)->group(function () {
     //     Route::resource('setting', 'edit');
     //     // Route::post('setting/update', 'update')

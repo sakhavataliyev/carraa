@@ -59,9 +59,9 @@
                       <div class="col-lg-6">
                         <div class="form-group-show">
                           <label class="form-control-label" for="input-username">Logo</label>
-                          <span class="description form-control-show">{{ $setting->logo }}</span>
+                          <span class="description form-control-show">{{ $setting->logo ? $setting->logo : 'Yoxdur' }}</span>
                           <div class="p-4 bg-primary">
-                            <img src="{{ asset($setting->logo) }}" alt="{{ $setting->logo }}" style="width:100px;height:100px;">
+                            <img src="{{ $setting->logo ? asset($setting->logo) : asset('/storage/setting/no_image.jpg')  }}" alt="{{ $setting->logo }}" style="width:100px;height:100px;">
                             </div>
                         </div>
                       </div>
@@ -69,9 +69,9 @@
                       <div class="col-lg-6">
                         <div class="form-group-show">
                           <label class="form-control-label" for="input-username">Favicon</label>
-                          <span class="description form-control-show">{{ $setting->favicon }}</span>
+                          <span class="description form-control-show">{{ $setting->favicon ? $setting->favicon : 'Yoxdur'   }}</span>
                           <div class="p-4 bg-secondary">
-                            <img src="{{ asset($setting->favicon) }}" alt="{{ $setting->favicon }}" style="width:100px;height:100px;">
+                            <img src="{{ $setting->favicon ? asset($setting->favicon) : asset('/storage/setting/no_image.jpg')  }}" alt="{{ $setting->favicon }}" style="width:100px;height:100px;">
                             </div>
                         </div>
                       </div>
