@@ -26,7 +26,7 @@
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label" for="input-username">Logo</label>
-                          <div class="p-4 bg-primary mb-3">
+                          <div class="p-4 bg-secondary mb-3">
                             <img src="{{ $setting->logo ? asset($setting->logo) : asset('/storage/setting/no_image.jpg') }}" alt="{{ $setting->logo }}" style="width:100px;height:100px;">
                             </div>
                           <input type="file" name="logo" class="form-control{{($errors->first('logo') ? " is-invalid" : "")}}" id="brandimage1" 

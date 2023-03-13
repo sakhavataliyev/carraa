@@ -43,7 +43,7 @@ class StaticPageController extends Controller
             'status' => $request->status == 'on' ? 1 : 0
         ]);
 
-        return redirect()->route('staticpages.index');
+        return redirect()->route('staticpages.index')->with('success', 'Static pages Added Successfully!');
     }
 
 
@@ -85,10 +85,9 @@ class StaticPageController extends Controller
             'status' => $request->status == 'on' ? 1 : 0
         ]);
 
-
         // $staticpage->update($request->validated());
 
-        return redirect()->route('staticpages.index');
+        return redirect()->route('staticpages.index')->with('success', 'Static pages Updated Successfully!');
     }
 
     /**
@@ -97,7 +96,7 @@ class StaticPageController extends Controller
     public function destroy(StaticPage $staticpage)
     {
         $staticpage->delete();
-
-        return redirect()->route('staticpages.index');
+        
+        return redirect()->route('staticpages.index')->with('success', 'Static pages Deleted Successfully!');
     }
 }

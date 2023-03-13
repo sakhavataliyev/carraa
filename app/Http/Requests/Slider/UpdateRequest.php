@@ -25,7 +25,8 @@ class UpdateRequest extends FormRequest
             'title' => 'required|string|min:2|max:100',
             // 'slug' => 'required|string|min:2|max:250',
             'image' => 'nullable|image|max:4096|mimes:jpg,jpeg,png,webp',
-            'sort_number' => 'nullable|min:0|max:119',
+            // 'sort_number' => 'nullable|min:0|max:119',
+            'sort_number' => "required|digits_between:1,1000|regex:/^\d*(\.\d{1,2})?$/"
             // 'status' => 'required|boolean',
         ];
     }

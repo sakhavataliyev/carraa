@@ -48,71 +48,71 @@
                   </thead>
                   <tbody>
             
-@foreach ($staticpage as $key=>$row)
-<tr>
-  <td>
-    <div class="d-flex px-2 py-1">
+              @foreach ($staticpage as $key=>$row)
+                  <tr>
+                    <td>
+                      <div class="d-flex px-2 py-1">
 
-        <h6 class="text-md text-dark font-weight-semibold mt-2 me-2">{{ $staticpage->firstItem() + $key }}</h6>
-   
+                          <h6 class="text-md text-dark font-weight-semibold mt-2 me-2">{{ $staticpage->firstItem() + $key }}</h6>
+                    
 
-      {{-- <div class="d-flex align-items-center">
-        {{ $key +1 }}
-        <img src="../assets/img/team-3.jpg" class="avatar avatar-sm rounded-circle me-2" alt="user2">
-      </div> --}}
-      {{-- <div class="d-flex flex-column justify-content-center ms-1">
-        <h6 class="mb-0 text-sm font-weight-semibold">Alexa Liras</h6>
-        <p class="text-sm text-secondary mb-0">alexa@creative-tim.com</p>
-      </div> --}}
-      <div class="my-auto">
-        <h6 class="mb-0 text-sm">{{ $row->title }}</h6>
-      </div>
-    </div>
-  </td>
-  <td>
-    <p class="text-sm text-dark font-weight-semibold mb-0">/{{ $row->slug }}</p>
-    {{-- <p class="text-sm text-secondary mb-0">Developer</p> --}}
-  </td>
-  {{-- <td class="align-middle text-center text-sm">
-    Offline
-  </td> --}}
-
-
-  <td class="px-6 py-4">
-    <span class="badge badge-sm border {{ $row->status == 1 ? 'border-success text-success bg-success border-radius-sm' : 'border-secondary text-secondary bg-secondary' }}  ">{{ $row->status == 1 ? 'Active' : 'Deakitv' }}</span>
-</td>
+                        {{-- <div class="d-flex align-items-center">
+                          {{ $key +1 }}
+                          <img src="../assets/img/team-3.jpg" class="avatar avatar-sm rounded-circle me-2" alt="user2">
+                        </div> --}}
+                        {{-- <div class="d-flex flex-column justify-content-center ms-1">
+                          <h6 class="mb-0 text-sm font-weight-semibold">Alexa Liras</h6>
+                          <p class="text-sm text-secondary mb-0">alexa@creative-tim.com</p>
+                        </div> --}}
+                        <div class="my-auto">
+                          <h6 class="mb-0 text-sm">{{ $row->title }}</h6>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="text-sm text-dark font-weight-semibold mb-0">/{{ $row->slug }}</p>
+                      {{-- <p class="text-sm text-secondary mb-0">Developer</p> --}}
+                    </td>
+                    {{-- <td class="align-middle text-center text-sm">
+                      Offline
+                    </td> --}}
 
 
-  <td class="align-middle text-center">
-    <span class="text-secondary text-sm font-weight-normal">{{ $row->created_at }}</span>
-  </td>
-
-  <td class="align-middle">
-    <a href="{{ route('staticpages.show', $row->id) }}" class="text-secondary font-weight-bold text-xs" data-bs-toggle="tooltip" data-bs-title="Show page">
-      <i class="fa-regular fa-eye  text-primary" style="font-size: 0.9rem !important;" ></i>
-    </a>
-    <a href="{{ route('staticpages.edit', $row->id) }}" class="text-secondary font-weight-bold text-xs" data-bs-toggle="tooltip" data-bs-title="Edit page">
-      <i class="fa-regular fa-pen-to-square text-primary mx-4" style="font-size: 0.9rem !important;"></i>
-    </a>
-
-    <form method="POST" action="{{ route('staticpages.destroy', $row->id) }}" style="display: inline-block;">
-      @csrf
-      @method('DELETE')
-      <button type="submit" onclick="return confirm('Are you sure?')" class="text-secondary font-weight-bold text-xs" style="all: unset;">
-        <i class="far fa-trash-alt" aria-hidden="true" style="font-size: 0.9rem !important;"></i>
-      </button>
-     </form>
-
-    {{-- <a href="{{ route('staticpages.delete', $row->id) }}" class="text-secondary font-weight-bold text-xs" data-bs-toggle="tooltip" data-bs-title="Edit user">
-      <i class="fa-regular fa-eye  text-primary ms-2"></i>
-    </a> --}}
+                    <td class="px-6 py-4">
+                      <span class="badge badge-sm border {{ $row->status == 1 ? 'border-success text-success bg-success border-radius-lg' : 'border-secondary text-secondary bg-secondary border-radius-lg' }}  ">{{ $row->status == 1 ? 'Active' : 'Deakitv' }}</span>
+                  </td>
 
 
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-sm font-weight-normal">{{ $row->created_at }}</span>
+                    </td>
 
-  </td>
+                    <td class="align-middle">
+                      <a href="{{ route('staticpages.show', $row->id) }}" class="text-secondary font-weight-bold text-xs" data-bs-toggle="tooltip" data-bs-title="Show page">
+                        <i class="fa-regular fa-eye  text-primary" style="font-size: 0.9rem !important;" ></i>
+                      </a>
+                      <a href="{{ route('staticpages.edit', $row->id) }}" class="text-secondary font-weight-bold text-xs" data-bs-toggle="tooltip" data-bs-title="Edit page">
+                        <i class="fa-regular fa-pen-to-square text-primary mx-4" style="font-size: 0.9rem !important;"></i>
+                      </a>
 
-</tr>
-@endforeach
+                      <form method="POST" action="{{ route('staticpages.destroy', $row->id) }}" style="display: inline-block;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" onclick="return confirm('Are you sure?')" class="text-secondary font-weight-bold text-xs" style="all: unset;">
+                          <i class="far fa-trash-alt" aria-hidden="true" style="font-size: 0.9rem !important;"></i>
+                        </button>
+                      </form>
+
+                      {{-- <a href="{{ route('staticpages.delete', $row->id) }}" class="text-secondary font-weight-bold text-xs" data-bs-toggle="tooltip" data-bs-title="Edit user">
+                        <i class="fa-regular fa-eye  text-primary ms-2"></i>
+                      </a> --}}
+
+
+
+                    </td>
+
+                  </tr>
+              @endforeach
 
            
 

@@ -84,7 +84,7 @@
 
 
   <td class="px-6 py-4">
-    <span class="badge badge-sm border {{ $row->status == 1 ? 'border-success text-success bg-success border-radius-sm' : 'border-secondary text-secondary bg-secondary' }}  ">{{ $row->status == 1 ? 'Active' : 'Deakitv' }}</span>
+    <span class="badge badge-sm border {{ $row->status == 1 ? 'border-success text-success bg-success border-radius-lg' : 'border-secondary text-secondary bg-secondary border-radius-lg' }}  ">{{ $row->status == 1 ? 'Active' : 'Deakitv' }}</span>
 </td>
 
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\v1;
 
-use Carbon\Carbon;
 use App\Models\Setting;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\SettingResource;
 use App\Http\Requests\Setting\UpdateRequest;
-
-
 
 class SettingController extends Controller
 {
@@ -15,23 +15,45 @@ class SettingController extends Controller
      */
     public function index()
     {
-        $setting = Setting::first();
+        // $social =  Social::first();
+        // return response()->json($social);
 
-        // $setting = $settingg ? $settingg : "Yoxdur";
-
-        return view('backend.settings.index', compact('setting'));
-
+        // return new SettingResource($setting);
+        
+        // return new SocialResourceCollection(Social::paginate());
+        
     }
 
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Setting $setting): SettingResource
+    {
+        return new SettingResource($setting);
+    }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Setting $setting)
+    public function edit(string $id)
     {
-        return view('backend.settings.edit', compact('setting'));
-
-
+        //
     }
 
     /**
@@ -39,15 +61,13 @@ class SettingController extends Controller
      */
     public function update(UpdateRequest $request, Setting $setting)
     {
+        // $setting->update($request->validated());
 
         $validated = $request->validated();
 
-        // $old = Setting::find($setting);
         $old_logo = $setting->logo;
         $old_favicon = $setting->favicon;        
 
-        // $old_logo = $request->old_logo;
-        // $old_favicon = $request->old_favicon;
         $logo = $request->file('logo');
         $favicon = $request->file('favicon');
 
@@ -89,13 +109,29 @@ class SettingController extends Controller
             'keywords' => $request->keywords,
             'copyright' => $request->copyright,
             'analytics' => $request->analytics,
-            'updated_at' => Carbon::now(),
+            'updated_at' => now(),
             ]);
 
-        return Redirect()->route('settings.index')->with('success', 'Settings Updated Successfully!');
-
+        return response()->json([
+            'info' => [
+                'success' => 'Update Successfully!',
+            ],
+            'data' => [
+                'logo' => $request->logo,
+                'favicon' => $request->favicon,
+                'title' => $request->title,
+                'description' => $request->description,
+                'keywords' => $request->keywords,
+                'copyright' => $request->copyright,
+                'analytics' => $request->analytics,
+        ]]);
     }
 
-
-
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
+    }
 }

@@ -55,7 +55,8 @@ class SliderController extends Controller
                 'status' => $request->status == 'on' ? 1 : 0
             ]);
 
-            return redirect()->route('sliders.index');
+            // return redirect()->route('sliders.index');
+            return redirect()->route('sliders.index')->with('success', 'Slider Added Successfully!');
             }
 
             Slider::create([
@@ -65,6 +66,7 @@ class SliderController extends Controller
                 'status' => $request->status == 'on' ? 1 : 0
             ]);
 
+            return redirect()->route('sliders.index')->with('success', 'Slider Added Successfully!');
 
     }
 
@@ -123,7 +125,8 @@ class SliderController extends Controller
                         'status' => $request->status == 'on' ? 1 : 0
                     ]);
 
-                    return redirect()->route('sliders.index');
+                    // return redirect()->route('sliders.index');
+                    return redirect()->route('sliders.index')->with('success', 'Slider Updated Successfully!');
                     }
 
                     else{
@@ -135,7 +138,8 @@ class SliderController extends Controller
                             'status' => $request->status == 'on' ? 1 : 0
                         ]);
 
-                        return redirect()->route('sliders.index');
+                        // return redirect()->route('sliders.index');
+                        return redirect()->route('sliders.index')->with('success', 'Slider Updated Successfully!');
                     }
 
     }
@@ -153,5 +157,6 @@ class SliderController extends Controller
         $slider->delete();
 
         return redirect()->route('sliders.index');
+        
     }
 }

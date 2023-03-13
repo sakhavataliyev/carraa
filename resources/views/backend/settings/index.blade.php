@@ -60,7 +60,7 @@
                         <div class="form-group-show">
                           <label class="form-control-label" for="input-username">Logo</label>
                           <span class="description form-control-show">{{ $setting->logo ? $setting->logo : 'Yoxdur' }}</span>
-                          <div class="p-4 bg-primary">
+                          <div class="p-4 bg-secondary">
                             <img src="{{ $setting->logo ? asset($setting->logo) : asset('/storage/setting/no_image.jpg')  }}" alt="{{ $setting->logo }}" style="width:100px;height:100px;">
                             </div>
                         </div>
