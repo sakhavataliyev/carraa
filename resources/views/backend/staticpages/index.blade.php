@@ -38,8 +38,8 @@
                 <table class="table align-items-center mb-0">
                   <thead class="bg-gray-100">
                     <tr>
-                      <th class="text-secondary text-xs font-weight-semibold opacity-7">No</th>
                       <th class="text-secondary text-xs font-weight-semibold opacity-7">Page name</th>
+                      {{-- <th class="text-secondary text-xs font-weight-semibold opacity-7"></th> --}}
                       <th class="text-secondary text-xs font-weight-semibold opacity-7 ps-2">Slug</th>
                       <th class="text-center text-secondary text-xs font-weight-semibold opacity-7">Status</th>
                       <th class="text-center text-secondary text-xs font-weight-semibold opacity-7">Created</th>
