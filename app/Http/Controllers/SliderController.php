@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Slider;
 use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use App\Http\Requests\Slider\StoreRequest;
 use App\Http\Requests\Slider\UpdateRequest;
 

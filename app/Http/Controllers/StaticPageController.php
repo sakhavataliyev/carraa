@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Str;
+use Illuminate\Support\Str;
 use App\Models\StaticPage;
-use Illuminate\Http\Request;
 use App\Http\Requests\StaticPage\StoreRequest;
 use App\Http\Requests\StaticPage\UpdateRequest;
 

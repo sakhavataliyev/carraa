@@ -135,26 +135,30 @@ class SocialController extends Controller
         // $social->update($request->validated());
 
         $social->update($request->validated());
-        return response()->json([
-            'info' => [
-                'success' => 'Update Successfully!',
-            ],
-            'data' => [
-                'facebook' => $request->facebook,
-                'twitter' => $request->twitter,
-                'instagram' => $request->instagram,
-                'tiktok' => $request->tiktok,
-                'github' => $request->github,
-                'linkedin' => $request->linkedin,
-                'pinterest' => $request->pinterest,
-                'youtube' => $request->youtube,
-                'whatsapp' => $request->whatsapp,
-                'address' => $request->address,
-                'phone' => $request->phone,
-                'email' => $request->email,
-                'latitude' => $request->latitude,
-                'longitude' => $request->longitude,
-        ]]);
+
+        return new SocialResource($social);
+
+        
+        // return response()->json([
+        //     'info' => [
+        //         'success' => 'Update Successfully!',
+        //     ],
+        //     'data' => [
+        //         'facebook' => $request->facebook,
+        //         'twitter' => $request->twitter,
+        //         'instagram' => $request->instagram,
+        //         'tiktok' => $request->tiktok,
+        //         'github' => $request->github,
+        //         'linkedin' => $request->linkedin,
+        //         'pinterest' => $request->pinterest,
+        //         'youtube' => $request->youtube,
+        //         'whatsapp' => $request->whatsapp,
+        //         'address' => $request->address,
+        //         'phone' => $request->phone,
+        //         'email' => $request->email,
+        //         'latitude' => $request->latitude,
+        //         'longitude' => $request->longitude,
+        // ]]);
 
 
 
