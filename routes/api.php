@@ -53,7 +53,7 @@ Route::prefix('v1')->group(function() {
 
     Route::middleware(['auth:sanctum','is_admin'])->group(function () {
 
-        Route::post('/logout',[AuthController::class,'logout']);
+        // Route::post('/logout',[AuthController::class,'logout']);
 
         Route::apiResource('socials', SocialController::class)
             ->only(['show','index','update']);
@@ -67,8 +67,10 @@ Route::prefix('v1')->group(function() {
         Route::apiResource('sliders', SliderController::class)
             ->only(['create','store','update','destroy']);
 
-        // Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
-        //     ->name('logout');
+        Route::post('logout', [AuthController::class, 'logout'])
+            ->name('logout');
+
+
     });
 
 
