@@ -42,12 +42,9 @@ class SettingController extends Controller
 
         $validated = $request->validated();
 
-        // $old = Setting::find($setting);
         $old_logo = $setting->logo;
         $old_favicon = $setting->favicon;        
 
-        // $old_logo = $request->old_logo;
-        // $old_favicon = $request->old_favicon;
         $logo = $request->file('logo');
         $favicon = $request->file('favicon');
 

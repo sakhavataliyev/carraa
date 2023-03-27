@@ -120,60 +120,7 @@
                     </div>
         
                 </div>
-            {{-- <div class="card-body p-3">
-               
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group-show">
-                            <label for="projectName" class="form-label">Project Name</label>
-                          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                        </div>
-                      </div>
-     
-                      <div class="col-md-6">
-                        <div class="form-group-show">
-                            <label for="projectName" class="form-label">Project Name</label>
-                          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                        </div>
-                      </div>
-
-                    </div>
-        
-                 <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group-show">
-                            <label for="projectName" class="form-label">Project Name</label>
-                          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                        </div>
-                      </div>
-     
-                      <div class="col-md-6">
-                        <div class="form-group-show">
-                            <label for="projectName" class="form-label">Project Name</label>
-                          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                        </div>
-                      </div>
-                      
-                    </div>
-       
-                    <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group-show">
-                            <label for="projectName" class="form-label">Project Name</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                          </div>
-                        </div>
-       
-                        <div class="col-md-6">
-                          <div class="form-group-show">
-                            <label for="projectName" class="form-label">Project Name</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                          </div>
-                        </div>
-                        
-                      </div>
-
-            </div> --}}
+      
             </div>
         </div>
     </div>

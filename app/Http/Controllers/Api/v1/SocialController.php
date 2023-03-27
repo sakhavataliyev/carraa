@@ -55,11 +55,6 @@ class SocialController extends Controller
      */
     public function show(Social $social): SocialResource
     {
-        // $social =  Social::first();
-
-        // if(!(Auth::user())) {
-        //     abort(403, 'Unauthorized!');
-        // }
         
         return new SocialResource($social);
     }
@@ -78,117 +73,10 @@ class SocialController extends Controller
     public function update(UpdateRequest $request, Social $social)
     {
 
-        // $social->update($request->only([
-        //     'facebook',
-        //     'twitter',
-        //     'instagram',
-        //     'tiktok',
-        //     'github',
-        //     'linkedin',
-        //     'pinterest',
-        //     'youtube',
-        //     'whatsapp',
-        //     'address',
-        //     'phone',
-        //     'email',
-        //     'latitude',
-        //     'longitude',
-        // ]));
-
-        // http://carraa.test/api/v1/socials/1?facebook=faceboofdk&twitter=twittersdd&instagram=instagramfefs&tiktok=tiktokmrf&github=githubbbbd&linkedin=linkedinssd&pinterest=pinterestbdds&youtube=youtubesfdks&whatsapp=whathhbh&address=addresssdsbdfd&phone=phonejhhhbbh&email=emailmksd@esj.rr&latitude=888&longitude=878
-        // $input = $request->all();
-        // $validator = Validator::make($input, [
-        //     'title' => 'required',
-        //     'description' => 'required'
-        // ]);
-        // if($validator->fails()){
-        //     return $this->sendError($validator->errors());       
-        // }
-
-        // $social->facebook = $input['facebook'];
-        // $social->twitter = $input['twitter'];
-        // $social->instagram = $input['instagram'];
-        // $social->tiktok = $input['tiktok'];
-        // $social->github = $input['github'];
-        // $social->linkedin = $input['linkedin'];
-        // $social->pinterest = $input['pinterest'];
-        // $social->youtube = $input['youtube'];
-        // $social->whatsapp = $input['whatsapp'];
-        // $social->address = $input['address'];
-        // $social->phone = $input['phone'];
-        // $social->email = $input['email'];
-        // $social->latitude = $input['latitude'];
-        // $social->longitude = $input['longitude'];
-        // $social->save();
-        
-        // return $this->sendResponse('Social updated.');
-
-
-
-        // if(!(Auth::user())) {
-        //     abort(403, 'Unauthorized!');
-        // }
-             
-
-        // $social = Social::findOrFail($social);
-
-        // $social->update($request->validated());
-
         $social->update($request->validated());
 
         return new SocialResource($social);
 
-        
-        // return response()->json([
-        //     'info' => [
-        //         'success' => 'Update Successfully!',
-        //     ],
-        //     'data' => [
-        //         'facebook' => $request->facebook,
-        //         'twitter' => $request->twitter,
-        //         'instagram' => $request->instagram,
-        //         'tiktok' => $request->tiktok,
-        //         'github' => $request->github,
-        //         'linkedin' => $request->linkedin,
-        //         'pinterest' => $request->pinterest,
-        //         'youtube' => $request->youtube,
-        //         'whatsapp' => $request->whatsapp,
-        //         'address' => $request->address,
-        //         'phone' => $request->phone,
-        //         'email' => $request->email,
-        //         'latitude' => $request->latitude,
-        //         'longitude' => $request->longitude,
-        // ]]);
-
-
-
-        // $validated = $request->validated();
-        // $social->update($request->validated());
-    
-        // $comment->name = $request->get('name');
-        // $comment->text = $request->get('text');
-
-        // $social->update($request->only([
-        //     'facebook',
-        //     'twitter',
-        //     'instagram',
-        //     'tiktok',
-        //     'github',
-        //     'linkedin',
-        //     'pinterest',
-        //     'youtube',
-        //     'whatsapp',
-        //     'address',
-        //     'phone',
-        //     'email',
-        //     'latitude',
-        //     'longitude',
-        // ]));
-
-    
-        // $comment->save();
-    
-        // return response()->json($social);
     }
 
     /**
@@ -196,13 +84,7 @@ class SocialController extends Controller
      */
     public function destroy(Social $social)
     {
-        //
 
-        // $social->delete();
-
-        // return response()->json(["data" => [
-        //     "success" => 'Post deleted.'
-        // ]]);
 
     }
 }

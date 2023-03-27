@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -108,9 +107,8 @@ class AuthController extends Controller
      * Destroy an authenticated session.
      */
     public function logout(Request $request){
-        Auth::user()->tokens->each(function($token, $key) {
-            $token->delete();
-        });
+
+        auth('sanctum')->user()->currentAccessToken()->delete();
 
         return response()->json([
             'message' => 'Logged out'
@@ -126,5 +124,7 @@ class AuthController extends Controller
     //         'message' => 'Logged out'
     //     ]);
     // }
+
+
     
 }

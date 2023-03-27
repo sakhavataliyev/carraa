@@ -17,19 +17,4 @@ class SocialResourceCollection extends ResourceCollection
         return parent::toArray($request);
     }
 
-    
-     /**
-     * Transform the resource into an array.
-     *
-     * @return array<string, mixed>
-     */
-    public function with(Request $request): array
-    {
-        return 
-        [
-            'version' => '1.0.0',
-            'author_url' => url('http://carraa.com/'),
-
-        ];
-    }
 }

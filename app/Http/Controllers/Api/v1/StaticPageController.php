@@ -18,8 +18,6 @@ class StaticPageController extends Controller
      */
     public function index(): StaticPageResourceCollection
     {
-        // $social =  Social::first();
-        // return response()->json($social);
 
         return new StaticPageResourceCollection(StaticPage::paginate());
         
@@ -48,9 +46,7 @@ class StaticPageController extends Controller
         ]);
 
         return new StaticPageResource($staticpage);
-        // return response()->json(['info' => [
-        //     'success' => 'Update Successfully!',
-        // ]]);
+
     }
 
     /**
@@ -74,7 +70,6 @@ class StaticPageController extends Controller
      */
     public function update(UpdateRequest $request, StaticPage $staticpage)
     {
-        // $staticpage->update($request->validated());
 
         $validated = $request->validated();
 
@@ -86,17 +81,6 @@ class StaticPageController extends Controller
         ]);
 
         return new StaticPageResource($staticpage);
-
-        // return response()->json([
-        //     'info' => [
-        //         'success' => 'Update Successfully!',
-        //     ],
-        //     'data' => [
-        //         'title' => $request->title,
-        //         'slug' => Str::slug($request->title),
-        //         'body' => $request->body,
-        //         'status' => $request->status,
-        // ]]);
 
     }
 

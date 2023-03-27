@@ -24,127 +24,132 @@
                 </div>
             </div>
             
-
+            @isset($social->id)
             <div class="card-body">
-               
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group-show">
-                              <label class="form-control-label" for="input-username">Facebook</label>
-                              <span class="description form-control-show">{{ $social->facebook }}</span>
-                            </div>
-                          </div>
-            
-                          <div class="col-lg-6">
-                            <div class="form-group-show">
-                              <label class="form-control-label" for="input-username">Twitter</label>
-                              <span class="description form-control-show">{{ $social->twitter }} </span>
-                            </div>
-                          </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group-show">
-                              <label class="form-control-label" for="input-username">Instagram</label>
-                              <span class="description form-control-show">{{ $social->instagram }}</span>
-                            </div>
-                          </div>
-            
-                          <div class="col-lg-6">
-                            <div class="form-group-show">
-                              <label class="form-control-label" for="input-username">Tiktok</label>
-                              <span class="description form-control-show">{{ $social->tiktok }} </span>
-                            </div>
-                          </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group-show">
-                              <label class="form-control-label" for="input-username">Github</label>
-                              <span class="description form-control-show">{{ $social->github }}</span>
-                            </div>
-                          </div>
-    
-                          <div class="col-lg-6">
-                            <div class="form-group-show">
-                              <label class="form-control-label" for="input-username">Linkedin</label>
-                              <span class="description form-control-show">{{ $social->linkedin }} </span>
-                            </div>
-                          </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group-show">
-                              <label class="form-control-label" for="input-username">Pinterest</label>
-                              <span class="description form-control-show">{{ $social->pinterest }}</span>
-                            </div>
-                          </div>
-            
-                          <div class="col-lg-6">
-                            <div class="form-group-show">
-                              <label class="form-control-label" for="input-username">Youtube</label>
-                              <span class="description form-control-show">{{ $social->youtube }} </span>
-                            </div>
-                          </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group-show">
-                              <label class="form-control-label" for="input-username">Whatsapp</label>
-                              <span class="description form-control-show">{{ $social->whatsapp }}</span>
-                            </div>
-                          </div>
-
-                        <div class="col-lg-6">
-                            <div class="form-group-show">
-                              <label class="form-control-label" for="input-username">Phone</label>
-                              <span class="description form-control-show">{{ $social->phone }}</span>
-                            </div>
-                          </div>
-        
-                    </div>
-
-
-                    <div class="row">  
-                        <div class="col-lg-6">
-                            <div class="form-group-show">
-                              <label class="form-control-label" for="input-username">Email</label>
-                              <span class="description form-control-show">{{ $social->email }} </span>
-                            </div>
-                          </div>
-
-                        <div class="col-lg-6">
-                          <div class="form-group-show">
-                            <label class="form-control-label" for="input-username">Address</label>
-                            <span class="description form-control-show">{{ $social->address }} </span>
-                          </div>
-                        </div>
-                  </div>
-
-
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group-show">
-                              <label class="form-control-label" for="input-username">Latitude</label>
-                              <span class="description form-control-show">{{ $social->latitude }}</span>
-                            </div>
-                          </div>
-            
-                          <div class="col-lg-6">
-                            <div class="form-group-show">
-                              <label class="form-control-label" for="input-username">Longitude</label>
-                              <span class="description form-control-show">{{ $social->longitude }} </span>
-                            </div>
-                          </div>
+              
+              
+              <div class="row">
+                  <div class="col-lg-6">
+                      <div class="form-group-show">
+                        <label class="form-control-label" for="input-username">Facebook</label>
+                        <span class="description form-control-show">{{ $social->facebook }}</span>
+                      </div>
                     </div>
       
+                    <div class="col-lg-6">
+                      <div class="form-group-show">
+                        <label class="form-control-label" for="input-username">Twitter</label>
+                        <span class="description form-control-show">{{ $social->twitter }} </span>
+                      </div>
+                    </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-lg-6">
+                      <div class="form-group-show">
+                        <label class="form-control-label" for="input-username">Instagram</label>
+                        <span class="description form-control-show">{{ $social->instagram }}</span>
+                      </div>
+                    </div>
+      
+                    <div class="col-lg-6">
+                      <div class="form-group-show">
+                        <label class="form-control-label" for="input-username">Tiktok</label>
+                        <span class="description form-control-show">{{ $social->tiktok }} </span>
+                      </div>
+                    </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-lg-6">
+                      <div class="form-group-show">
+                        <label class="form-control-label" for="input-username">Github</label>
+                        <span class="description form-control-show">{{ $social->github }}</span>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                      <div class="form-group-show">
+                        <label class="form-control-label" for="input-username">Linkedin</label>
+                        <span class="description form-control-show">{{ $social->linkedin }} </span>
+                      </div>
+                    </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-lg-6">
+                      <div class="form-group-show">
+                        <label class="form-control-label" for="input-username">Pinterest</label>
+                        <span class="description form-control-show">{{ $social->pinterest }}</span>
+                      </div>
+                    </div>
+      
+                    <div class="col-lg-6">
+                      <div class="form-group-show">
+                        <label class="form-control-label" for="input-username">Youtube</label>
+                        <span class="description form-control-show">{{ $social->youtube }} </span>
+                      </div>
+                    </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-lg-6">
+                      <div class="form-group-show">
+                        <label class="form-control-label" for="input-username">Whatsapp</label>
+                        <span class="description form-control-show">{{ $social->whatsapp }}</span>
+                      </div>
+                    </div>
+
+                  <div class="col-lg-6">
+                      <div class="form-group-show">
+                        <label class="form-control-label" for="input-username">Phone</label>
+                        <span class="description form-control-show">{{ $social->phone }}</span>
+                      </div>
+                    </div>
+  
+              </div>
 
 
-                </div>
+              <div class="row">  
+                  <div class="col-lg-6">
+                      <div class="form-group-show">
+                        <label class="form-control-label" for="input-username">Email</label>
+                        <span class="description form-control-show">{{ $social->email }} </span>
+                      </div>
+                    </div>
+
+                  <div class="col-lg-6">
+                    <div class="form-group-show">
+                      <label class="form-control-label" for="input-username">Address</label>
+                      <span class="description form-control-show">{{ $social->address }} </span>
+                    </div>
+                  </div>
+            </div>
+
+
+              <div class="row">
+                  <div class="col-lg-6">
+                      <div class="form-group-show">
+                        <label class="form-control-label" for="input-username">Latitude</label>
+                        <span class="description form-control-show">{{ $social->latitude }}</span>
+                      </div>
+                    </div>
+      
+                    <div class="col-lg-6">
+                      <div class="form-group-show">
+                        <label class="form-control-label" for="input-username">Longitude</label>
+                        <span class="description form-control-show">{{ $social->longitude }} </span>
+                      </div>
+                    </div>
+              </div>
+      </div>
+            @endisset
+
+            @empty( $social->id)
+              Empty...
+            @endempty
+
+
             </div>
         </div>
     </div>

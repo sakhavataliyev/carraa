@@ -96,7 +96,7 @@
                       </a>
 
                       <form method="POST" action="{{ route('staticpages.destroy', $row->id) }}" style="display: inline-block;">
-                        @csrf
+                        @csrf 
                         @method('DELETE')
                         <button type="submit" onclick="return confirm('Are you sure?')" class="text-secondary font-weight-bold text-xs" style="all: unset;">
                           <i class="far fa-trash-alt" aria-hidden="true" style="font-size: 0.9rem !important;"></i>

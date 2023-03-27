@@ -33,51 +33,40 @@ class SliderController extends Controller
      */
     public function store(StoreRequest $request)
     {
-            $validated = $request->validated();
+        $validated = $request->validated();
 
-            $image = $request->file('image');
+        $image = $request->file('image');
 
-            if($image){
-            $image_name = date('dmy_H_s_i');
-            // $image_name = "image";
-            $ext = strtolower($image->getClientOriginalExtension());
-            $image_full_name = 'slider_'.$image_name.'.'.$ext;
-            $upload_path = 'storage/slider/';
-            $image_url = $upload_path.$image_full_name;
-            $image_last = $image->move($upload_path,$image_full_name);
+        if($image){
+        $image_name = date('dmy_H_s_i');
+        // $image_name = "image";
+        $ext = strtolower($image->getClientOriginalExtension());
+        $image_full_name = 'slider_'.$image_name.'.'.$ext;
+        $upload_path = 'storage/slider/';
+        $image_url = $upload_path.$image_full_name;
+        $image_last = $image->move($upload_path,$image_full_name);
 
-            Slider::create([
-                'title' => $request->title,
-                'slug' => Str::slug($request->title),
-                'image' => $image_last,
-                'sort_number' => 1,
-                'status' => $request->status == 'on' ? 1 : 0
-            ]);
+        Slider::create([
+            'title' => $request->title,
+            'slug' => Str::slug($request->title),
+            'image' => $image_last,
+            'sort_number' => 1,
+            'status' => $request->status == 'on' ? 1 : 0
+        ]);
 
-            // return redirect()->route('sliders.index');
-            return redirect()->route('sliders.index')->with('success', 'Slider Added Successfully!');
-            }
+        return redirect()->route('sliders.index')->with('success', 'Slider Added Successfully!');
+        }
 
-            Slider::create([
-                'title' => $request->title,
-                'slug' => Str::slug($request->title),
-                'sort_number' => 1,
-                'status' => $request->status == 'on' ? 1 : 0
-            ]);
+        Slider::create([
+            'title' => $request->title,
+            'slug' => Str::slug($request->title),
+            'sort_number' => 1,
+            'status' => $request->status == 'on' ? 1 : 0
+        ]);
 
-            return redirect()->route('sliders.index')->with('success', 'Slider Added Successfully!');
+        return redirect()->route('sliders.index')->with('success', 'Slider Added Successfully!');
 
     }
-
-
-
-    /**
-     * Display the specified resource.
-     */
-    // public function show(string $slider)
-    // {
-    //     //
-    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -98,48 +87,39 @@ class SliderController extends Controller
 
             $image = $request->file('image');
 
+            if($image){
 
-                    if($image){
+                $old_image = $slider->image;
+            
+                @unlink(public_path('storage/slider/'.$old_image));
+                $image_name = date('dmy_H_s_i');
+                $ext = strtolower($image->getClientOriginalExtension());
+                $image_full_name = 'slider_'.$image_name.'.'.$ext;
+                $upload_path = 'storage/slider/';
+                $image_url = $upload_path.$image_full_name;
+                $image_last = $image->move($upload_path,$image_full_name);
 
-                        // $delete = Slider::find($slider);
-                        $old_image = $slider->image;
-                        
-                        // @unlink(public_path('storage/slider/'.$old_image));
+                $slider->update([
+                    'title' => $request->title,
+                    'slug' => Str::slug($request->title),
+                    'image' => $image_last,
+                    'sort_number' => $request->sort_number,
+                    'status' => $request->status == 'on' ? 1 : 0
+                ]);
 
-                    // $old_image = $request->old_image;
+                return redirect()->route('sliders.index')->with('success', 'Slider Updated Successfully!');
+            }
 
-                    @unlink(public_path('storage/slider/'.$old_image));
-                    $image_name = date('dmy_H_s_i');
-                    $ext = strtolower($image->getClientOriginalExtension());
-                    $image_full_name = 'slider_'.$image_name.'.'.$ext;
-                    $upload_path = 'storage/slider/';
-                    $image_url = $upload_path.$image_full_name;
-                    $image_last = $image->move($upload_path,$image_full_name);
+            else{
+                $slider->update([
+                    'title' => $request->title,
+                    'slug' => Str::slug($request->title),
+                    'sort_number' => $request->sort_number,
+                    'status' => $request->status == 'on' ? 1 : 0
+                ]);
 
-                    $slider->update([
-                        'title' => $request->title,
-                        'slug' => Str::slug($request->title),
-                        'image' => $image_last,
-                        'sort_number' => $request->sort_number,
-                        'status' => $request->status == 'on' ? 1 : 0
-                    ]);
-
-                    // return redirect()->route('sliders.index');
-                    return redirect()->route('sliders.index')->with('success', 'Slider Updated Successfully!');
-                    }
-
-                    else{
-                        $slider->update([
-                            'title' => $request->title,
-                            'slug' => Str::slug($request->title),
-                            // 'image' => $image_last,
-                            'sort_number' => $request->sort_number,
-                            'status' => $request->status == 'on' ? 1 : 0
-                        ]);
-
-                        // return redirect()->route('sliders.index');
-                        return redirect()->route('sliders.index')->with('success', 'Slider Updated Successfully!');
-                    }
+                return redirect()->route('sliders.index')->with('success', 'Slider Updated Successfully!');
+            }
 
     }
 
@@ -148,7 +128,6 @@ class SliderController extends Controller
      */
     public function destroy(Slider $slider)
     {
-        // $delete = Slider::find($slider);
         $old_image = $slider->image;
         
         @unlink(public_path('storage/slider/'.$old_image));

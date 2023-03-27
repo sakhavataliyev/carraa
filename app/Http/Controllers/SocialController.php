@@ -56,9 +56,7 @@ class SocialController extends Controller
      */
     public function update(UpdateRequest $request, Social $social)
     {
-        // $validated = $request->validated();
-
-        $social->update($request->validated());
+          $social->update($request->validated());
 
         // $social->update($request->only([
         //     'facebook',

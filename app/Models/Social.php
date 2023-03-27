@@ -28,8 +28,4 @@ class Social extends Model
     ];
 
 
-    // public function social(){
-    //     return $this->hasOne('');
-    // }
-
 }

@@ -32,7 +32,6 @@
                           <input type="file" name="logo" class="form-control{{($errors->first('logo') ? " is-invalid" : "")}}" id="brandimage1" 
                           aria-describedby="logo" placeholder="Update brand image" 
                               value="{{ $setting->logo }}">
-                          {{-- <input type="hidden" name="old_logo" value="{{ $setting->logo }}">    --}}
                           </div>
                       </div>
                 
@@ -45,8 +44,6 @@
                           <input type="file" name="favicon" class="form-control{{($errors->first('favicon') ? " is-invalid" : "")}}" id="brandimage1" 
                           aria-describedby="logo" placeholder="Update brand image" 
                               value="{{ $setting->favicon }}">
-                            
-                          {{-- <input type="hidden" name="old_favicon" value="{{ $setting->favicon }}">    --}}
                         </div>
                       </div>
                     </div>

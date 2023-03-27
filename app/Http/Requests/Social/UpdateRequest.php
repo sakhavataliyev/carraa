@@ -22,30 +22,23 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'facebook' => 'required|string|min:3|max:250',
-            'twitter' => 'required|string|min:3|max:250',
-            'instagram' => 'required|string|min:3|max:250',
-            'tiktok' => 'required|string|min:3|max:250',
-            'github' => 'required|string|min:3|max:250',
-            'linkedin' => 'required|string|min:3|max:250',
-            'pinterest' => 'required|string|min:3|max:250',
-            'youtube' => 'required|string|min:3|max:250',
-            'whatsapp' => 'required|string|min:3|max:250',
-            'address' => 'required|string|min:3|max:250',
-            'phone' => 'required|string|min:7|max:20',
-            'email' => 'required|email|min:3|max:50',
-            'latitude' => 'required|string|min:3|max:250',
-            'longitude' => 'required|string|min:3|max:250',
+            'facebook' => 'string|nullable|min:0|max:250',
+            'twitter' => 'string|nullable|min:0|max:250',
+            'instagram' => 'string|nullable|min:0|max:250',
+            'tiktok' => 'string|nullable|min:0|max:250',
+            'github' => 'string|nullable|min:0|max:250',
+            'linkedin' => 'string|nullable|min:0|max:250',
+            'pinterest' => 'string|nullable|min:0|max:250',
+            'youtube' => 'string|nullable|min:0|max:250',
+            'whatsapp' => 'string|nullable|min:0|max:250',
+            'address' => 'string|nullable|min:0|max:250',
+            'phone' => 'string|nullable|min:0|max:20',
+            'email' => 'email|nullable|min:0|max:50',
+            'latitude' => 'string|nullable|min:0|max:250',
+            'longitude' => 'string|nullable|min:0|max:250',
 
         ];
     }
-
-    // public function messages(): array
-    // {
-    //     return [
-    //         //
-    //     ];
-    // }
 
 
 

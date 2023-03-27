@@ -115,19 +115,6 @@ class SettingController extends Controller
 
             return new SettingResource($setting);
 
-        // return response()->json([
-        //     'info' => [
-        //         'success' => 'Update Successfully!',
-        //     ],
-        //     'data' => [
-        //         'logo' => $request->logo,
-        //         'favicon' => $request->favicon,
-        //         'title' => $request->title,
-        //         'description' => $request->description,
-        //         'keywords' => $request->keywords,
-        //         'copyright' => $request->copyright,
-        //         'analytics' => $request->analytics,
-        // ]]);
     }
 
     /**

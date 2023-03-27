@@ -62,7 +62,6 @@ class StaticPageController extends Controller
      */
     public function edit(string $staticpage)
     {
-        // return view('backend.staticpages.edit', compact('staticpage'));
 
         return view('backend.staticpages.edit', [
             'staticpage' => StaticPage::findOrFail($staticpage),
@@ -83,8 +82,6 @@ class StaticPageController extends Controller
             'body' => $request->body,
             'status' => $request->status == 'on' ? 1 : 0
         ]);
-
-        // $staticpage->update($request->validated());
 
         return redirect()->route('staticpages.index')->with('success', 'Static pages Updated Successfully!');
     }
