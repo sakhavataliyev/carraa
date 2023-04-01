@@ -35,14 +35,18 @@ Route::prefix('v1')->group(function() {
         ->only(['index','show']);
     Route::apiResource('solutions', SolutionController::class)
         ->only(['index','show']);
+    Route::apiResource('socials', SocialController::class)
+        ->only(['show','index']);
+    Route::apiResource('settings', SettingController::class)
+        ->only(['show']);
 
     Route::middleware(['auth:sanctum','is_admin'])->group(function () {
 
         Route::apiResource('socials', SocialController::class)
-            ->only(['show','index','update']);
+            ->only(['update']);
 
         Route::apiResource('settings', SettingController::class)
-            ->only(['show','update']);
+            ->only(['update']);
 
         Route::apiResource('staticpages', StaticPageController::class)
             ->only(['create','store','update','destroy']);
