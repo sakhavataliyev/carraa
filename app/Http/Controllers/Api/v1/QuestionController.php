@@ -2,23 +2,21 @@
 
 namespace App\Http\Controllers\Api\v1;
 
-use App\Models\Solution;
+use App\Models\Question;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\SolutionResource;
-use App\Http\Requests\Solution\StoreRequest;
-use App\Http\Requests\Solution\UpdateRequest;
-use App\Http\Resources\SolutionResourceCollection;
+use App\Http\Resources\QuestionResource;
+use App\Http\Requests\Question\StoreRequest;
+use App\Http\Requests\Question\UpdateRequest;
+use App\Http\Resources\QuestionResourceCollection;
 
-class SolutionController extends Controller
+class QuestionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): SolutionResourceCollection
+    public function index(): QuestionResourceCollection
     {
-
-        return new SolutionResourceCollection(Solution::paginate());
-        
+        return new QuestionResourceCollection(Question::paginate());
     }
 
     /**
@@ -36,24 +34,23 @@ class SolutionController extends Controller
     {
         $validated = $request->validated();
         
-        $solution = Solution::create([
+        $question = Question::create([
             'title' => $request->title,
             'description' => $request->description,
             'sort_number' => $request->sort_number,
             'status' => $request->status
         ]);
 
-        return new SolutionResource($solution);
+        return new QuestionResource($question);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Solution $solution): SolutionResource
+    public function show(Question $question): QuestionResource
     {
-        return new SolutionResource($solution);
+        return new QuestionResource($question);
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -66,29 +63,29 @@ class SolutionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRequest $request, Solution $solution)
+    public function update(UpdateRequest $request, Question $question)
     {
         $validated = $request->validated();
 
-        $solution->update([
+        $question->update([
             'title' => $request->title,
             'description' => $request->description,
             'sort_number' => $request->sort_number,
             'status' => $request->status
         ]);
 
-        return new SolutionResource($solution);
+        return new QuestionResource($question);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Solution $solution)
+    public function destroy(Question $question)
     {
-        $solution->delete();
+        $question->delete();
 
         return response()->json(["data" => [
-            "success" => 'Solution deleted.'
+            "success" => 'Question deleted.'
         ]]);
     }
 }

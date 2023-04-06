@@ -2,23 +2,21 @@
 
 namespace App\Http\Controllers\Api\v1;
 
-use App\Models\Solution;
+use App\Models\Process;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\SolutionResource;
-use App\Http\Requests\Solution\StoreRequest;
-use App\Http\Requests\Solution\UpdateRequest;
-use App\Http\Resources\SolutionResourceCollection;
+use App\Http\Resources\ProcessResource;
+use App\Http\Requests\Process\StoreRequest;
+use App\Http\Requests\Process\UpdateRequest;
+use App\Http\Resources\ProcessResourceCollection;
 
-class SolutionController extends Controller
+class ProcessController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): SolutionResourceCollection
+    public function index(): ProcessResourceCollection
     {
-
-        return new SolutionResourceCollection(Solution::paginate());
-        
+        return new ProcessResourceCollection(Process::paginate());
     }
 
     /**
@@ -36,24 +34,23 @@ class SolutionController extends Controller
     {
         $validated = $request->validated();
         
-        $solution = Solution::create([
+        $process = Process::create([
             'title' => $request->title,
             'description' => $request->description,
             'sort_number' => $request->sort_number,
             'status' => $request->status
         ]);
 
-        return new SolutionResource($solution);
+        return new ProcessResource($process);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Solution $solution): SolutionResource
+    public function show(Process $process): ProcessResource
     {
-        return new SolutionResource($solution);
+        return new ProcessResource($process);
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -66,29 +63,29 @@ class SolutionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRequest $request, Solution $solution)
+    public function update(UpdateRequest $request, Process $process)
     {
         $validated = $request->validated();
 
-        $solution->update([
+        $process->update([
             'title' => $request->title,
             'description' => $request->description,
             'sort_number' => $request->sort_number,
             'status' => $request->status
         ]);
 
-        return new SolutionResource($solution);
+        return new ProcessResource($process);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Solution $solution)
+    public function destroy(Process $process)
     {
-        $solution->delete();
+        $process->delete();
 
         return response()->json(["data" => [
-            "success" => 'Solution deleted.'
+            "success" => 'Process deleted.'
         ]]);
     }
 }

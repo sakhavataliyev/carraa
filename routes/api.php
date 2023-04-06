@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\v1\AuthController;
 use App\Http\Controllers\Api\v1\SliderController;
 use App\Http\Controllers\Api\v1\SocialController;
+use App\Http\Controllers\Api\v1\ProcessController;
 use App\Http\Controllers\Api\v1\SettingController;
+use App\Http\Controllers\Api\v1\QuestionController;
 use App\Http\Controllers\Api\v1\SolutionController;
 use App\Http\Controllers\Api\v1\StaticPageController;
 
@@ -29,16 +31,21 @@ Route::prefix('v1')->group(function() {
     Route::post('/register', [AuthController::class, 'createUser']);
     Route::post('/login', [AuthController::class, 'loginUser']);
 
+
+    Route::apiResource('socials', SocialController::class)
+        ->only(['show','index']);
+    Route::apiResource('settings', SettingController::class)
+        ->only(['show']);
     Route::apiResource('staticpages', StaticPageController::class)
         ->only(['index','show']);
     Route::apiResource('sliders', SliderController::class)
         ->only(['index','show']);
     Route::apiResource('solutions', SolutionController::class)
         ->only(['index','show']);
-    Route::apiResource('socials', SocialController::class)
-        ->only(['show','index']);
-    Route::apiResource('settings', SettingController::class)
-        ->only(['show']);
+    Route::apiResource('questions', QuestionController::class)
+        ->only(['index','show']);
+    Route::apiResource('process', ProcessController::class)
+        ->only(['index','show']);
 
     Route::middleware(['auth:sanctum','is_admin'])->group(function () {
 
@@ -56,10 +63,15 @@ Route::prefix('v1')->group(function() {
 
         Route::apiResource('solutions', SolutionController::class)
              ->only(['create','store','update','destroy']);
+    
+        Route::apiResource('questions', QuestionController::class)
+             ->only(['create','store','update','destroy']);
+
+        Route::apiResource('process', ProcessController::class)
+             ->only(['create','store','update','destroy']);
 
         Route::post('logout', [AuthController::class, 'logout'])
             ->name('logout');
-
 
             
     });

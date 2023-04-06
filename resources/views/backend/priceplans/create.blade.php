@@ -1,5 +1,7 @@
+
+
 @extends('backend.layouts.app')
-@section('title', 'Solution Create')
+@section('title', 'Price Plan Create')
 @section('content')
 
 
@@ -11,14 +13,14 @@
             <div class="card-header pb-0 p-3">
                 <div class="row">
                 <div class="col-md-12 col-9">
-                    <h6 class="mb-0 font-weight-semibold text-lg">Solutions</h6>
+                    <h6 class="mb-0 font-weight-semibold text-lg">Price Plan</h6>
                     <p class="text-sm mb-1">Create</p>
                 </div>
                 </div>
             </div>
             
             <div class="card-body">
-                <form method="POST" action="{{ route('solutions.store') }}">
+                <form method="POST" action="{{ route('priceplans.store') }}">
                     @csrf
                     <div class="row">
                         <div class="col-lg-12">
@@ -42,7 +44,14 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-lg-12">
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="input-username">Sort number</label>
+                            <input class="form-control{{($errors->first('price') ? " is-invalid" : "")}}"  type="text" name="price" 
+                            value="{{ old('price') }}" placeholder="1" onfocus="focused(this)" onfocusout="defocused(this)" required>
+                        </div>
+                      </div>
+                        <div class="col-lg-6">
                           <div class="form-group">
                               <label class="form-control-label" for="input-username">Sort number</label>
                               <input class="form-control{{($errors->first('sort_number') ? " is-invalid" : "")}}"  type="text" name="sort_number" 

@@ -4,8 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PriceContentController;
+use App\Http\Controllers\PricePlanController;
+use App\Http\Controllers\ProcessController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\SolutionController;
 use App\Http\Controllers\StaticPageController;
 
@@ -49,6 +53,10 @@ Route::middleware('auth','is_admin')
     Route::resource('sliders', SliderController::class);
     Route::resource('contacts', ContactController::class);
     Route::resource('solutions', SolutionController::class);
+    Route::resource('questions', QuestionController::class);
+    Route::resource('process', ProcessController::class);
+    Route::resource('priceplans', PricePlanController::class);
+    Route::resource('pricecontents', PriceContentController::class);
 
 });
 

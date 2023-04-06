@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Solutions')
+@section('title', 'Process')
 @section('content')
    
 <div class="container my-3 py-3">
@@ -9,14 +9,14 @@
             <div class="card-header border-bottom pb-0">
               <div class="d-sm-flex align-items-center">
                 <div>
-                  <h6 class="font-weight-semibold text-lg mb-0">Solutions</h6>
+                  <h6 class="font-weight-semibold text-lg mb-0">Process</h6>
                   <p class="text-sm">Index</p>
                 </div>
                 <div class="ms-auto d-flex">
                   {{-- <button type="button" class="btn btn-sm btn-white me-2">
                     View all
                   </button> --}}
-                  <a class="btn-inner--text text-white" href="{{ route('solutions.create') }}">
+                  <a class="btn-inner--text text-white" href="{{ route('priceplans.create') }}">
                     <button type="button" class="btn btn-sm btn-dark btn-icon d-flex align-items-center me-2">
                       <span class="btn-inner--icon">
                         <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="d-block me-2">
@@ -44,11 +44,11 @@
                   </thead>
                   <tbody>
             
-              @foreach ($solution as $key=>$row)
+              @foreach ($priceplan as $key=>$row)
                   <tr>
                     <td>
                       <div class="d-flex px-2 py-1">
-                          <h6 class="text-md text-dark font-weight-semibold mt-2 me-2">{{ $solution->firstItem() + $key }}</h6>
+                          <h6 class="text-md text-dark font-weight-semibold mt-2 me-2">{{ $priceplan->firstItem() + $key }}</h6>
                         {{-- <div class="d-flex align-items-center">
                           {{ $key +1 }}
                           <img src="../assets/img/team-3.jpg" class="avatar avatar-sm rounded-circle me-2" alt="user2">
@@ -87,14 +87,14 @@
                   </td>
 
                     <td class="align-middle">
-                      <a href="{{ route('solutions.show', $row->id) }}" class="text-secondary font-weight-bold text-xs" data-bs-toggle="tooltip" data-bs-title="Show page">
+                      <a href="{{ route('priceplans.show', $row->id) }}" class="text-secondary font-weight-bold text-xs" data-bs-toggle="tooltip" data-bs-title="Show page">
                         <i class="fa-regular fa-eye  text-primary" style="font-size: 0.9rem !important;" ></i>
                       </a>
-                      <a href="{{ route('solutions.edit', $row->id) }}" class="text-secondary font-weight-bold text-xs" data-bs-toggle="tooltip" data-bs-title="Edit page">
+                      <a href="{{ route('priceplans.edit', $row->id) }}" class="text-secondary font-weight-bold text-xs" data-bs-toggle="tooltip" data-bs-title="Edit page">
                         <i class="fa-regular fa-pen-to-square text-primary mx-4" style="font-size: 0.9rem !important;"></i>
                       </a>
 
-                      <form method="POST" action="{{ route('solutions.destroy', $row->id) }}" style="display: inline-block;">
+                      <form method="POST" action="{{ route('priceplans.destroy', $row->id) }}" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" onclick="return confirm('Are you sure?')" class="text-secondary font-weight-bold text-xs" style="all: unset;">
@@ -116,7 +116,7 @@
 
       <!-- Card footer -->
       {{-- <div class="card-footer py-4"> --}}
-        {{ $solution->links("pagination::bootstrap-4") }}
+        {{ $priceplan->links("pagination::bootstrap-4") }}
       {{-- </div> --}}
 
                 {{-- <p class="font-weight-semibold mb-0 text-dark text-sm">Page 1 of 10</p> --}}

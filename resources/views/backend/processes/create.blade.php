@@ -1,5 +1,7 @@
+
+
 @extends('backend.layouts.app')
-@section('title', 'Solution Create')
+@section('title', 'Process Create')
 @section('content')
 
 
@@ -11,14 +13,14 @@
             <div class="card-header pb-0 p-3">
                 <div class="row">
                 <div class="col-md-12 col-9">
-                    <h6 class="mb-0 font-weight-semibold text-lg">Solutions</h6>
+                    <h6 class="mb-0 font-weight-semibold text-lg">Process</h6>
                     <p class="text-sm mb-1">Create</p>
                 </div>
                 </div>
             </div>
             
             <div class="card-body">
-                <form method="POST" action="{{ route('solutions.store') }}">
+                <form method="POST" action="{{ route('process.store') }}">
                     @csrf
                     <div class="row">
                         <div class="col-lg-12">
