@@ -11,16 +11,28 @@ class PriceContent extends Model
 
     protected $fillable = [
         'plan_id',
-        'title',
         'content',
         'sort_number',
         'status'
     ];
 
+    
+    // public function priceplans()
+    // {
+    //     return $this->hasOne(PricePlan::class, 'id', 'plan_id');
+    //     // return $this->belongsTo(PricePlan::class);
+    // }
 
-    public function priceplans()
+
+    public function priceplan()
     {
-        return $this->belongsTo(PricePlan::class, "plan_id", );
+        return $this->hasOne(PricePlan::class, 'id', 'plan_id');
     }
+    
+
+    // public function priceplans()
+    // {
+    //     return $this->belongsTo(PricePlan::class);
+    // }
 
 }

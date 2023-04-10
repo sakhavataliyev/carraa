@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\PriceContent;
 use Illuminate\Http\Request;
+use App\Http\Requests\PriceContent\StoreRequest;
+use App\Http\Requests\PriceContent\UpdateRequest;
 
 class PriceContentController extends Controller
 {
@@ -20,15 +22,28 @@ class PriceContentController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.pricecontents.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        $validated = $request->validated();
+        
+        PriceContent::create([
+            'plan_id' => $request->plan_id,
+            'content' => $request->content,
+            'sort_number' => $request->sort_number,
+            'status' => $request->status == 'on' ? 1 : 0
+        ]);
+
+        // $plan = $request->plan_id;
+
+        // return redirect()->route('priceplans.show',['plan_id'=>$request->plan_id])->with('success', 'Kredit məlumatları uğurla yeniləndi!');
+
+        return redirect()->route('priceplans.index')->with('success', 'Price Content Added Successfully!');
     }
 
     /**
@@ -42,24 +57,34 @@ class PriceContentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PriceContent $priceContent)
+    public function edit(PriceContent $pricecontent)
     {
-        //
+        return view('backend.pricecontents.edit', compact('pricecontent'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PriceContent $priceContent)
+    public function update(UpdateRequest $request, PriceContent $pricecontent)
     {
-        //
+        $validated = $request->validated();
+        
+        $pricecontent->update([
+            'plan_id' => $request->plan_id,
+            'content' => $request->content,
+            'sort_number' => $request->sort_number,
+            'status' => $request->status == 'on' ? 1 : 0
+        ]);
+
+        return redirect()->route('priceplans.index')->with('success', 'Price Content Updated Successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PriceContent $priceContent)
+    public function destroy(PriceContent $pricecontent)
     {
-        //
+        $pricecontent->delete();
+        return redirect()->route('priceplans.index')->with('success', 'Price Content Deleted Successfully!');
     }
 }

@@ -25,7 +25,7 @@ class StoreRequest extends FormRequest
             'title' => 'required|string|min:2|max:100',
             'description' => 'required|string|min:2|max:250',
             'price' => 'required|numeric|min:0|max:100000',
-            // 'sort_number' => 'required|number',
+            'sort_number' => 'required|numeric',
             // 'status' => 'required|boolean',
         ];
     }

@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('price_contents', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('plan_id');
-            $table->string('title');
+            $table->foreignId('plan_id')->index();
             $table->string('content')->nullable();
             $table->tinyInteger('sort_number')->default(1);
             $table->boolean('status')->default(false);

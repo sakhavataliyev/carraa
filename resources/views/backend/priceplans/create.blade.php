@@ -46,9 +46,9 @@
                     <div class="row">
                       <div class="col-lg-6">
                         <div class="form-group">
-                            <label class="form-control-label" for="input-username">Sort number</label>
+                            <label class="form-control-label" for="input-username">Price (₼)</label>
                             <input class="form-control{{($errors->first('price') ? " is-invalid" : "")}}"  type="text" name="price" 
-                            value="{{ old('price') }}" placeholder="1" onfocus="focused(this)" onfocusout="defocused(this)" required>
+                            value="{{ old('price') }}" placeholder="100" onfocus="focused(this)" onfocusout="defocused(this)" required>
                         </div>
                       </div>
                         <div class="col-lg-6">

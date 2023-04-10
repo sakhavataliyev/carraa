@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PricePlan;
+use App\Models\PriceContent;
 use Illuminate\Http\Request;
 use App\Http\Requests\PricePlan\StoreRequest;
 use App\Http\Requests\PricePlan\UpdateRequest;
@@ -14,9 +15,12 @@ class PricePlanController extends Controller
      */
     public function index()
     {
-        $priceplan =  PricePlan::latest('id')
-            ->paginate(20);
-    
+        // $priceplan =  PriceContent::with('priceplansm')
+        //             ->latest('id')
+        //             ->paginate(20);
+
+        $priceplan =  PricePlan::latest('id')->paginate(20);
+        
     return view('backend.priceplans.index', compact('priceplan'));
     }
 
@@ -51,7 +55,11 @@ class PricePlanController extends Controller
      */
     public function show(PricePlan $priceplan)
     {
-        return view('backend.priceplans.show', compact('priceplan'));
+
+    $pricecontent =  PriceContent::where('plan_id', $priceplan->id)->get();
+    // dd($pricecontent);
+
+        return view('backend.priceplans.show', compact('priceplan', 'pricecontent'));
     }
 
     /**
@@ -59,7 +67,7 @@ class PricePlanController extends Controller
      */
     public function edit(PricePlan $priceplan)
     {
-        return view('backend.priceplans.show', compact('priceplan'));
+        return view('backend.priceplans.edit', compact('priceplan'));
     }
 
     /**
