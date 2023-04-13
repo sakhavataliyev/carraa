@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Process')
+@section('title', 'Price Plans')
 @section('content')
    
 <div class="container my-3 py-3">
@@ -9,7 +9,7 @@
             <div class="card-header border-bottom pb-0">
               <div class="d-sm-flex align-items-center">
                 <div>
-                  <h6 class="font-weight-semibold text-lg mb-0">Process</h6>
+                  <h6 class="font-weight-semibold text-lg mb-0">Price Plans</h6>
                   <p class="text-sm">Index</p>
                 </div>
                 <div class="ms-auto d-flex">
@@ -103,9 +103,9 @@
               <div class="border-top py-3 px-3 d-flex align-items-center">
 
       <!-- Card footer -->
-      {{-- <div class="card-footer py-4"> --}}
-        {{-- {{ $priceplan->links("pagination::bootstrap-4") }} --}}
-      {{-- </div> --}}
+      <div class="card-footer py-4">
+        {{ $priceplan->links("pagination::bootstrap-4") }}
+      </div>
 
                 {{-- <p class="font-weight-semibold mb-0 text-dark text-sm">Page 1 of 10</p> --}}
                 {{-- <div class="ms-auto">

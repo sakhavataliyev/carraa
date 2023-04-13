@@ -1,7 +1,11 @@
 <?php
 
+use App\Models\PricePlan;
+use App\Models\PriceContent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Resources\PricePlanResource;
+use App\Http\Resources\PriceContentResource;
 use App\Http\Controllers\Api\v1\AuthController;
 use App\Http\Controllers\Api\v1\SliderController;
 use App\Http\Controllers\Api\v1\SocialController;
@@ -9,7 +13,9 @@ use App\Http\Controllers\Api\v1\ProcessController;
 use App\Http\Controllers\Api\v1\SettingController;
 use App\Http\Controllers\Api\v1\QuestionController;
 use App\Http\Controllers\Api\v1\SolutionController;
+use App\Http\Controllers\Api\v1\PricePlanController;
 use App\Http\Controllers\Api\v1\StaticPageController;
+use App\Http\Controllers\Api\v1\PriceContentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +52,14 @@ Route::prefix('v1')->group(function() {
         ->only(['index','show']);
     Route::apiResource('process', ProcessController::class)
         ->only(['index','show']);
-
+    Route::apiResource('priceplans', PricePlanController::class)
+             ->only(['index','show']);
+    Route::apiResource('pricecontents', PriceContentController::class)
+             ->only(['index','show']);
+    //  Route::get('/plans', function () {
+    //     return PricePlanResource::collection(PricePlan::all());
+    // });
+    
     Route::middleware(['auth:sanctum','is_admin'])->group(function () {
 
         Route::apiResource('socials', SocialController::class)
@@ -69,6 +82,14 @@ Route::prefix('v1')->group(function() {
 
         Route::apiResource('process', ProcessController::class)
              ->only(['create','store','update','destroy']);
+
+        Route::apiResource('priceplans', PricePlanController::class)
+             ->only(['create','store','update','destroy']);
+
+        Route::apiResource('pricecontents', PriceContentController::class)
+             ->only(['create','store','update','destroy']);
+
+
 
         Route::post('logout', [AuthController::class, 'logout'])
             ->name('logout');

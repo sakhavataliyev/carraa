@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\PriceContent;
-use Illuminate\Http\Request;
 use App\Http\Requests\PriceContent\StoreRequest;
 use App\Http\Requests\PriceContent\UpdateRequest;
 
@@ -31,7 +30,7 @@ class PriceContentController extends Controller
     public function store(StoreRequest $request)
     {
         $validated = $request->validated();
-        
+        // $plan = $request->plan_id;
         PriceContent::create([
             'plan_id' => $request->plan_id,
             'content' => $request->content,
@@ -39,11 +38,10 @@ class PriceContentController extends Controller
             'status' => $request->status == 'on' ? 1 : 0
         ]);
 
-        // $plan = $request->plan_id;
+        
 
-        // return redirect()->route('priceplans.show',['plan_id'=>$request->plan_id])->with('success', 'Kredit məlumatları uğurla yeniləndi!');
+        return redirect()->route('priceplans.show',['priceplan'=>$request->plan_id])->with('success', 'Price Content Created Successfully!');
 
-        return redirect()->route('priceplans.index')->with('success', 'Price Content Added Successfully!');
     }
 
     /**
@@ -76,7 +74,9 @@ class PriceContentController extends Controller
             'status' => $request->status == 'on' ? 1 : 0
         ]);
 
-        return redirect()->route('priceplans.index')->with('success', 'Price Content Updated Successfully!');
+        return redirect()->route('priceplans.show',['priceplan'=>$request->plan_id])->with('success', 'Price Content Updated Successfully!');
+
+        // return redirect()->route('priceplans.index')->with('success', 'Price Content Updated Successfully!');
     }
 
     /**
@@ -85,6 +85,7 @@ class PriceContentController extends Controller
     public function destroy(PriceContent $pricecontent)
     {
         $pricecontent->delete();
-        return redirect()->route('priceplans.index')->with('success', 'Price Content Deleted Successfully!');
+        
+       return redirect()->route('priceplans.index')->with('success', 'Price Content Deleted Successfully!');
     }
 }

@@ -16,7 +16,13 @@ class PriceContent extends Model
         'status'
     ];
 
+
+    public function priceplan()
+    {
+        return $this->belongsTo(PricePlan::class);
+    }
     
+
     // public function priceplans()
     // {
     //     return $this->hasOne(PricePlan::class, 'id', 'plan_id');
@@ -24,10 +30,10 @@ class PriceContent extends Model
     // }
 
 
-    public function priceplan()
-    {
-        return $this->hasOne(PricePlan::class, 'id', 'plan_id');
-    }
+    // public function priceplan()
+    // {
+    //     return $this->hasOne(PricePlan::class, 'id', 'plan_id');
+    // }
     
 
     // public function priceplans()
